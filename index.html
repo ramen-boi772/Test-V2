@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-<h1>Proxy to Test Censorship (via GitHub Pages)</h1>
+<h1>Proxy to Test Censorship (via Vercel)</h1>
 <form id="proxyForm">
   <input type="text" id="urlInput" placeholder="Enter URL (e.g., https://github.com)" required />
   <button type="submit">Go</button>
@@ -19,16 +19,17 @@
 <iframe id="proxyFrame" src=""></iframe>
 
 <script>
-const proxyBaseUrl = 'https://your-proxy.herokuapp.com'; // Change this to your backend URL
+  // Replace this with your actual Vercel deployment URL
+  const proxyBaseUrl = 'https://your-project-name.vercel.app';
 
-const form = document.getElementById('proxyForm');
-const iframe = document.getElementById('proxyFrame');
+  const form = document.getElementById('proxyForm');
+  const iframe = document.getElementById('proxyFrame');
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const targetUrl = document.getElementById('urlInput').value;
-  iframe.src = `${proxyBaseUrl}/proxy?url=${encodeURIComponent(targetUrl)}`;
-});
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const targetUrl = document.getElementById('urlInput').value;
+    iframe.src = `${proxyBaseUrl}/proxy?url=${encodeURIComponent(targetUrl)}`;
+  });
 </script>
 </body>
 </html>
